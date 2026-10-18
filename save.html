@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#252525">
+  <title>Предупреждение безопасности</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #252525;
+      --text: #383838;
+      --muted: #5a5a5a;
+      --red: #ef443b;
+      --red-dark: #c9362c;
+      --amber: #ffad16;
+      --amber-dark: #c48700;
+      --card: #fff8f7;
+      --warning: #fff9e9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 18px 14px 30px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, Roboto, "Segoe UI", Arial, sans-serif;
+      line-height: 1.55;
+    }
+    .container { width: min(100%, 690px); margin: 0 auto 0 0; }
+    .panel {
+      border: 2px solid;
+      border-radius: 11px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      box-shadow: 0 5px 18px #00000012;
+    }
+    .panel-danger { border-color: var(--red); background: var(--card); }
+    .panel-caution { border-color: var(--amber); background: var(--warning); }
+    .panel-inner { padding: 20px 23px 24px; }
+    .panel-heading {
+      display: flex; align-items: center; gap: 15px;
+      margin: 0 0 10px; font-size: clamp(19px, 3.2vw, 22px);
+      font-weight: 500;
+    }
+    .panel-danger .panel-heading { color: #d92f24; }
+    .panel-caution .panel-heading { color: var(--amber-dark); }
+    .symbol { font-size: 31px; line-height: 1; flex: 0 0 auto; }
+    p { margin: 0 0 12px; font-size: 17px; color: var(--muted); }
+    ul { margin: 8px 0 8px 27px; padding-left: 17px; color: var(--muted); }
+    li { padding: 1px 0; font-size: 16.5px; }
+    .separator { height: 2px; background: var(--amber); }
+    .extra {
+      margin-top: 19px; padding: 18px 20px; border-radius: 10px;
+      background: #fff; border: 1px solid #e6e6e6;
+    }
+    .extra h2 { margin: 0 0 8px; font-size: 18px; color: #282828; }
+    .extra p, .extra li { font-size: 15px; }
+    .steps { list-style: none; margin: 8px 0 0; padding: 0; }
+    .steps li { display: flex; gap: 10px; margin: 9px 0; }
+    .step-number {
+      display: inline-flex; flex: 0 0 25px; height: 25px; align-items: center;
+      justify-content: center; border-radius: 50%; background: #f0f0f0;
+      color: #333; font-weight: 700; font-size: 13px;
+    }
+    .danger-banner {
+      background: #c7352a; color: white; border-radius: 10px;
+      padding: 16px 18px; text-align: center; font-size: 17px;
+      font-weight: 650; line-height: 1.35; margin-top: 17px;
+    }
+    .small-note { color: #bcbcbc; font-size: 12px; text-align: center; margin-top: 14px; }
+    @media (max-width: 480px) {
+      body { padding: 12px 8px 24px; }
+      .panel-inner { padding: 17px 15px 19px; }
+      p { font-size: 15.5px; }
+      li { font-size: 15px; }
+      .extra { padding: 15px; }
+      .danger-banner { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="panel panel-danger" aria-labelledby="danger-title">
+      <div class="panel-inner">
+        <h1 class="panel-heading" id="danger-title"><span class="symbol" aria-hidden="true">⚠️</span> Опасная ссылка</h1>
+        <p>Эта ссылка может вести на подозрительный сайт. Не открывайте её, если вы не уверены в источнике.</p>
+        <ul>
+          <li>Фишинг — попытки украсть пароли и данные банковских карт.</li>
+          <li>Вредоносные программы, которые могут навредить устройству.</li>
+          <li>Сайты-мошенники, выманивающие деньги или личную информацию.</li>
+          <li>Поддельные страницы входа, имитирующие известные сервисы.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel panel-caution" aria-labelledby="apk-title">
+      <div class="panel-inner">
+        <h2 class="panel-heading" id="apk-title"><span class="symbol" aria-hidden="true">🛡️</span> Неизвестный APK-файл</h2>
+        <p>APK-файл не прошёл независимую проверку. Устанавливайте приложения только из надёжных источников и проверяйте разрешения.</p>
+        <ul>
+          <li>Шпионские программы могут пытаться получить доступ к личным данным.</li>
+          <li>Трояны могут выполнять скрытые действия без вашего ведома.</li>
+          <li>Программы-вымогатели могут блокировать доступ к файлам.</li>
+          <li>Поддельные приложения могут показывать фальшивые окна входа.</li>
+        </ul>
+      </div>
+      <div class="separator"></div>
+      <div class="panel-inner">
+        <p><strong>Перед установкой проверьте:</strong></p>
+        <ul>
+          <li>Кто разработчик и есть ли у него официальный сайт.</li>
+          <li>Совпадает ли имя приложения с официальным источником.</li>
+          <li>Не запрашивает ли приложение лишние разрешения.</li>
+          <li>Есть ли возможность проверить файл антивирусом.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="extra" aria-labelledby="actions-title">
+      <h2 id="actions-title">Что делать, если вы уже открыли ссылку или установили APK?</h2>
+      <ul class="steps">
+        <li><span class="step-number">1</span><span>Закройте подозрительную страницу и не вводите данные.</span></li>
+        <li><span class="step-number">2</span><span>Если вы установили неизвестное приложение, проверьте его в настройках устройства и удалите, если оно вызывает сомнения.</span></li>
+        <li><span class="step-number">3</span><span>Запустите проверку встроенной защитой устройства или надёжным антивирусом.</span></li>
+        <li><span class="step-number">4</span><span>Если ввели пароль на подозрительном сайте, смените его на официальном сайте сервиса и включите двухфакторную защиту.</span></li>
+        <li><span class="step-number">5</span><span>Если ввели банковские данные, немедленно свяжитесь с банком через официальный номер.</span></li>
+      </ul>
+    </section>
+
+    <div class="danger-banner">🚫 Не переходите по сомнительным ссылкам, не устанавливайте неизвестные файлы и не вводите личные данные.</div>
+    <p class="small-note">Важно: это информационное предупреждение, а не результат автоматической проверки конкретной ссылки или APK.</p>
+  </main>
+</body>
+</html>
